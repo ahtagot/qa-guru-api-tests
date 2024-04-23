@@ -1,0 +1,16 @@
+# Default ignored files
+build/
+/shelf/
+/workspace.xml
+/checkstyle-idea.xml
+.idea
+*.iws
+*.iml
+*.ipr
+
+### Gradle ###
+.gradle
+**/build/
+!src/**/build/
+src/test/java/PracticeFormTests.java
+*.log
