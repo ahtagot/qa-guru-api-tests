@@ -1,0 +1,75 @@
+plugins {
+    id 'java-library'
+    id 'application'
+    id 'io.qameta.allure' version '2.11.2'
+}
+
+def allureVersion = "2.26.0",
+    selenideVersion = "7.2.1"
+
+allure {
+    report {
+        version.set("2.25.0")
+    }
+    adapter {
+        aspectjWeaver.set(true)
+        frameworks {
+            junit5 {
+                adapterVersion.set("2.25.0")
+            }
+        }
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+sourceSets {
+    test {
+        resources {
+            srcDirs = ['src/test/resources']
+        }
+    }
+}
+
+compileTestJava {
+    options.encoding = "UTF-8"
+}
+dependencies {
+    implementation(
+            'com.fasterxml.jackson.core:jackson-core:2.13.1',
+            'com.fasterxml.jackson.core:jackson-databind:2.16.2',
+    )
+
+    testImplementation(
+            'io.rest-assured:rest-assured:5.3.1',
+
+            'org.junit.jupiter:junit-jupiter:5.10.2',
+            "com.codeborne:selenide:$selenideVersion",
+            'org.slf4j:slf4j-simple:2.0.7',
+            'com.github.javafaker:javafaker:1.0.2',
+            'commons-io:commons-io:2.15.0',
+            'com.codeborne:pdf-test:1.5.0',
+            'com.codeborne:xls-test:1.4.3',
+            'com.opencsv:opencsv:5.9',
+            "io.qameta.allure:allure-selenide:$allureVersion"
+
+    )
+}
+
+tasks.withType(Test) {
+    useJUnitPlatform()
+    systemProperties(System.getProperties())
+
+    testLogging {
+        lifecycle {
+            events "started", "skipped", "failed", "standard_error", "standard_out"
+            exceptionFormat "short"
+        }
+    }
+}
+
+
+
+
