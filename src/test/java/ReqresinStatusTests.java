@@ -14,7 +14,6 @@ public class ReqresinStatusTests {
         RestAssured.baseURI = "https://reqres.in/api";
     }
 
-    //Get
     @Test
     @DisplayName("Get user")
     void getSingleUserName() {
@@ -39,9 +38,6 @@ public class ReqresinStatusTests {
                 .statusCode(404);
     }
 
-
-    //POST
-
     @Test
     @DisplayName("Create user")
     void createNewUser() {
@@ -60,8 +56,6 @@ public class ReqresinStatusTests {
                 .body("job", equalTo("janitor"));
     }
 
-
-    //PUT
     @Test
     @DisplayName("Update user")
     void updateNewUser() {
