@@ -2,10 +2,15 @@ plugins {
     id 'java-library'
     id 'application'
     id 'io.qameta.allure' version '2.11.2'
+    id 'io.freefair.lombok' version '6.0.0-m2'
+
 }
 
 def allureVersion = "2.26.0",
-    selenideVersion = "7.2.1"
+    selenideVersion = "7.2.1",
+    restAssuredVersion = "5.4.0",
+    junit5Version = "5.10.2"
+
 
 allure {
     report {
@@ -43,9 +48,8 @@ dependencies {
     )
 
     testImplementation(
-            'io.rest-assured:rest-assured:5.3.1',
-
-            'org.junit.jupiter:junit-jupiter:5.10.2',
+            "io.rest-assured:rest-assured:$restAssuredVersion",
+            "org.junit.jupiter:junit-jupiter:$junit5Version",
             "com.codeborne:selenide:$selenideVersion",
             'org.slf4j:slf4j-simple:2.0.7',
             'com.github.javafaker:javafaker:1.0.2',
@@ -53,7 +57,7 @@ dependencies {
             'com.codeborne:pdf-test:1.5.0',
             'com.codeborne:xls-test:1.4.3',
             'com.opencsv:opencsv:5.9',
-            "io.qameta.allure:allure-selenide:$allureVersion"
+            "io.qameta.allure:allure-rest-assured:$allureVersion"
 
     )
 }

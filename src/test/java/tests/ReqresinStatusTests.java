@@ -1,3 +1,5 @@
+package tests;
+
 import io.restassured.RestAssured;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.DisplayName;
@@ -11,7 +13,8 @@ import static org.hamcrest.Matchers.is;
 public class ReqresinStatusTests {
     @BeforeAll
     static void beforeAll() {
-        RestAssured.baseURI = "https://reqres.in/api";
+        RestAssured.baseURI = "https://reqres.in";
+        RestAssured.basePath = "/api";
     }
 
     @Test
