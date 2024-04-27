@@ -115,7 +115,7 @@ public class RequesinStatusPojoModelTest {
 
                     .then()
                     .log().body()
-                    .statusCode(201)
+                    .statusCode(200)
                     .extract().as(UpdateUserResponsePojoModel.class);
 
             assertEquals("UpdatedNewUser", response.getName());
