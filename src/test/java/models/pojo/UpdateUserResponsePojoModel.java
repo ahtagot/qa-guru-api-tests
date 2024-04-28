@@ -3,6 +3,7 @@ package models.pojo;
 public class UpdateUserResponsePojoModel {
 
     String name, job, updatedAt;
+
     public String getName() {
         return name;
     }

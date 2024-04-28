@@ -123,7 +123,7 @@ public class RequesinStatusStepsTest {
 
                         .then()
                         .log().body()
-                        .statusCode(201)
+                        .statusCode(200)
                         .extract().as(UpdateUserResponseLombokModel.class));
 
         step("check response", () -> {
